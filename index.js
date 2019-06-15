@@ -20,5 +20,6 @@ document.getElementById("endDate").defaultValue = endDate || todaysDate;
 
 // Calculate the percentage and set it on the UI
 const percentage = calculatePercentageDifference(start, currentDate, end);
-document.getElementById("percentage").innerHTML = `${percentage}%`;
+document.getElementById("percentageComplete").innerHTML = `${percentage}% Complete`;
+document.getElementById("percentageRemaining").innerHTML = `${100 - percentage}% Remaining`;
 document.title = `${percentage}% - Percentage Countdown Timer`

@@ -7,7 +7,7 @@ function GetURLParameter(parameter, url) {
     for (var i = 0; i < urlVariables.length; i++) {
         var parameterName = urlVariables[i].split('=');
         if (parameterName[0] == parameter) {
-            return parameterName[1];
+            return decodeURIComponent(parameterName[1]);
         }
     }
 }

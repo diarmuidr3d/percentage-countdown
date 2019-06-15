@@ -29,7 +29,7 @@ QUnit.test( "Verify Percentage Date Difference Calculation", function( assert ) 
   });
 
   QUnit.test( "Verify url parameter retrieval", function( assert ) {
-    const url = "start=2019-05-11T07:00:00&end=2019-09-18T14:00:00"
+    var url = "start=2019-05-11T07:00:00&end=2019-09-18T14:00:00"
     
     const start = GetURLParameter("start", url);
     assert.equal(start, "2019-05-11T07:00:00", "Verify first param is retrieved" );
@@ -39,4 +39,8 @@ QUnit.test( "Verify Percentage Date Difference Calculation", function( assert ) 
 
     const random = GetURLParameter("random", url);
     assert.equal(random, undefined, "Verify undefined is returned for non-existant params");
+
+    url = "?end=2019-09-18T14%3A00%3A00&start=2019-05-11T07%3A00%3A00";
+    const startDecoded = GetURLParameter("start", url);
+    assert.equal(startDecoded, "2019-05-11T07:00:00", "Verify url parms are decoded" );
   });

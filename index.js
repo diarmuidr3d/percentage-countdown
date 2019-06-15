@@ -8,4 +8,4 @@ const end = GetURLParameter("end", url);
 
 const percentage = calculatePercentageDifference(start, currentDate, end);
 
-document.getElementById("percentage").innerHTML = percentage.toString() + "%";
+document.getElementById("percentage").innerHTML = `${percentage}%`;

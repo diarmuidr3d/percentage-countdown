@@ -2,10 +2,10 @@
 
 const url = window.location.search.substring(1);
 
-var startDate = new Date(GetURLParameter("start", url));
-var endDate = new Date(GetURLParameter("end", url));
-var currentDate = new Date();
+var currentDate = new Date().toUTCString();
+const start = GetURLParameter("start", url);
+const end = GetURLParameter("end", url);
 
-const percentage = calculatePercentageDifference(startDate, currentDate, endDate);
+const percentage = calculatePercentageDifference(start, currentDate, end);
 
 document.getElementById("percentage").innerHTML = percentage.toString() + "%";

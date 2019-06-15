@@ -15,7 +15,7 @@ document.getElementById("startTime").defaultValue = startTime || "12:00";
 document.getElementById("endTime").defaultValue = endTime || "12:00";
 // Set the start and end dates to the values from the url by default, otherwise, set them to today
 const todaysDate = new Date().toJSON().slice(0,10);
-document.getElementById("startDate").defaultValue = endDate || todaysDate;
+document.getElementById("startDate").defaultValue = startDate || todaysDate;
 document.getElementById("endDate").defaultValue = endDate || todaysDate;
 
 // Calculate the percentage and set it on the UI

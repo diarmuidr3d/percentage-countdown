@@ -31,3 +31,14 @@ function calculatePercentageDifference(startDateStr, intermediateDateStr, endDat
     const percentageRounded = Math.round(percentage*10)/10;
     return percentageRounded;
 }
+
+/**
+ * Builds a datetime string from the input date and time strings.
+ * If date is undefined, returns today's date
+ * If time is undefined, returns 00:00 for time
+ */
+function buildDateTimeString(date, time) {
+    if(time == undefined) time = "00:00:00";
+    if(date == undefined) date = new Date().toJSON().slice(0,10);
+    return `${date}T${time}`;
+}

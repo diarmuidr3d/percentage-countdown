@@ -44,3 +44,20 @@ QUnit.test( "Verify Percentage Date Difference Calculation", function( assert ) 
     const startDecoded = GetURLParameter("start", url);
     assert.equal(startDecoded, "2019-05-11T07:00:00", "Verify url parms are decoded" );
   });
+
+  QUnit.test( "Verify dateTime string building", function( assert ) {
+    var date = "2019-05-11";
+    var time = "07:00:00";
+    const dateTime = buildDateTimeString(date, time);
+    assert.equal(dateTime, "2019-05-11T07:00:00", "Verify dateTime is built for all parameters" );
+
+    time = undefined;
+    const dateTimeZeroTime = buildDateTimeString(date, time);
+    assert.equal(dateTimeZeroTime, "2019-05-11T00:00:00", "Verify time is set to 00:00 where it is undefined" );
+
+    date = undefined;
+    time = "07:00:00";
+    const todaysDate = new Date().toJSON().slice(0,10);
+    const dateTimeUndefDate = buildDateTimeString(date, time);
+    assert.equal(dateTimeUndefDate, `${todaysDate}T${time}`, "Verify todays date is used where date is undefined" );
+  });

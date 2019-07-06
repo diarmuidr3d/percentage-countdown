@@ -8,7 +8,7 @@ const endTime = GetURLParameter("endTime", url);
 const startDate = GetURLParameter("startDate", url);
 const endDate = GetURLParameter("endDate", url);
 const start = buildDateTimeString(startDate, startTime);
-const start = buildDateTimeString(endDate, endTime);
+const end = buildDateTimeString(endDate, endTime);
 
 // Set the start and end time to the values from the url by default, otherwise, set them to midday
 document.getElementById("startTime").defaultValue = startTime || "12:00";
